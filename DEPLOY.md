@@ -1,4 +1,4 @@
-# Publish Wayline as a public website
+# Publish Intercivia as a public website
 
 Yes. This project builds to a folder of static files (`dist/`). Anyone can open the site in a browser from a public URL. No app install is required.
 
