@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.vite/
+intercity_GeoJSON_dataset.geojson
+

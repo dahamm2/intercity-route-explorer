@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore directed intercity bus routes, ordered stops, and weekly service frequency."
+    />
+    <meta name="theme-color" content="#102a43" />
+    <title>Wayline — Intercity Route Explorer</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#planner">Skip to trip planner</a>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Wayline home">
+
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40"><path d="M8 27.5 16.2 9h7.6L32 27.5l-5.6 3.6L20 16.5l-6.4 14.6z"/><circle cx="20" cy="26" r="3"/></svg>
+          </span>
+          <span>
+            <strong>Wayline</strong>
+            <small>Intercity route explorer</small>
+          </span>
+        </a>
+        <div class="network-stats" aria-label="Network data summary">
+          <span><strong id="route-count">—</strong> routes</span>
+          <span class="network-stats__divider" aria-hidden="true"></span>
+          <span><strong id="stop-count">—</strong> stops</span>
+        </div>
+        <button class="ghost-button" id="reset" type="button">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 6v4h4"/><path d="M5.3 13.8A6 6 0 1 0 5 6.5L4 10"/></svg>
+          Reset
+        </button>
+      </header>
+
+      <main class="workspace">
+        <section class="map-panel" aria-label="Intercity route map">
+          <div id="map"></div>
+          <div class="map-legend" aria-label="Map legend">
+            <span><i class="legend-line legend-line--network"></i>Network</span>
+            <span><i class="legend-line legend-line--selection"></i>Selected routes</span>
+          </div>
+          <div class="map-badge">Map data © OpenStreetMap</div>
+        </section>
+
+        <aside class="planner-panel" id="planner" aria-busy="true">
+          <div class="planner-intro">
+            <p class="eyebrow">Find your connection</p>
+            <h1>Where are you headed?</h1>
+            <p>Search by city. Each city includes all of its stations. If there is no direct trip, one-transfer connections are shown.</p>
+          </div>
+
+          <div class="search-stack">
+            <div class="search-field">
+              <span class="search-field__marker search-field__marker--origin" aria-hidden="true"></span>
+              <label for="origin">Origin city</label>
+              <div class="search-field__control">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="m13 13 4 4"/></svg>
+                <input
+                  id="origin"
+                  type="text"
+                  placeholder="e.g. Champaign, IL"
+                  autocomplete="off"
+                  role="combobox"
+                  aria-expanded="false"
+                  aria-controls="origin-suggestions"
+                  aria-autocomplete="list"
+                  aria-describedby="origin-help"
+                />
+                <ul id="origin-suggestions" class="city-suggestions" role="listbox" hidden></ul>
+              </div>
+              <small id="origin-help">Choose a suggestion to select a mapped location.</small>
+            </div>
+
+            <button class="swap-button" id="swap" type="button" aria-label="Swap origin and destination">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3v13m0 0-3-3m3 3 3-3M14 17V4m0 0-3 3m3-3 3 3"/></svg>
+            </button>
+
+            <div class="search-field">
+              <span class="search-field__marker search-field__marker--destination" aria-hidden="true"></span>
+              <label for="destination">Destination city</label>
+              <div class="search-field__control">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="m13 13 4 4"/></svg>
+                <input
+                  id="destination"
+                  type="text"
+                  placeholder="e.g. Indianapolis, IN"
+                  autocomplete="off"
+                  role="combobox"
+                  aria-expanded="false"
+                  aria-controls="destination-suggestions"
+                  aria-autocomplete="list"
+                  aria-describedby="destination-help"
+                />
+                <ul id="destination-suggestions" class="city-suggestions" role="listbox" hidden></ul>
+              </div>
+              <small id="destination-help">Choose a suggestion to select a mapped location.</small>
+            </div>
+          </div>
+
+          <div class="direction-note">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 9v5M10 6.2v.2"/></svg>
+            <span id="data-note">Loading source data interpretation…</span>
+          </div>
+
+          <div class="results-header">
+            <div>
+              <p class="eyebrow" id="results-eyebrow">Plan a trip</p>
+              <h2 id="result-summary">Select two cities to see directed intercity service.</h2>
+            </div>
+          </div>
+
+          <div class="results" id="results"></div>
+          <div class="loading" id="loading" role="status">
+            <span class="loading__spinner" aria-hidden="true"></span>
+            <span>Preparing the intercity network…</span>
+          </div>
+        </aside>
+      </main>
+    </div>
+    <div id="app-status" class="sr-only" role="status" aria-live="polite"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
