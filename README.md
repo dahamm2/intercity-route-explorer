@@ -53,4 +53,6 @@ The website only needs `network.json`. Keep the GeoJSON on your computer if you 
 
 ## Credits
 
+Intercity bus / GTFS data from the [UTEL-UIUC intercity-bus-gtfs](https://github.com/UTEL-UIUC/intercity-bus-gtfs) project.
+
 Developed in the context of intercity GTFS research at the University of Illinois. Map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.

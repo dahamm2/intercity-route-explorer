@@ -58,7 +58,7 @@ L.control
   .scale({ position: "bottomleft", imperial: true, metric: false, maxWidth: 120 })
   .addTo(map);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  attribution: 'Data from <a href="https://github.com/UTEL-UIUC/intercity-bus-gtfs">UTEL-UIUC intercity-bus-gtfs</a> | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   maxZoom: 19,
 }).addTo(map);
 map.fitBounds(NORTH_AMERICA_BOUNDS, { padding: [12, 12] });

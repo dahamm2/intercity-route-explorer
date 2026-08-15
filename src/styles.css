@@ -272,6 +272,10 @@ summary:focus-visible {
   font-size: 9px;
 }
 
+.map-badge a {
+  color: inherit;
+}
+
 .planner-panel {
   position: relative;
   z-index: 600;
